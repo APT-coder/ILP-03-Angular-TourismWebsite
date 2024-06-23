@@ -1,0 +1,31 @@
+<div class="container mt-5" *ngIf="district">
+  <div class="row">
+    <div class="col-md-4">
+      <h2>{{ district.title }}</h2>
+      <p>{{ district.long_description }}</p>
+    </div>
+    <div class="col-md-8 carousel-custom">
+      <app-home-carousel 
+        [id]=district.id [carouselType]=true>
+      </app-home-carousel>
+    </div>
+  </div>
+  
+  <div class="row mt-4">
+    <div class="col-12">
+      <h3>Attractions</h3>
+    </div>
+  </div>
+  
+  <div class="row place-to-visit mt-5" *ngFor="let place of district.places_to_visit">
+    <div class="col-md-4">
+      <div class="place-image-container">
+        <img [src]="place.image" class="img-fluid place-image" alt="{{ place.name }}">
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h4>{{ place.name }}</h4>
+      <p>{{ place.description }}</p>
+    </div>
+  </div>
+</div>

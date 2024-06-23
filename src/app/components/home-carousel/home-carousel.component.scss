@@ -1,0 +1,15 @@
+.carousel-item img {
+  height: 530px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.carousel-inner {
+  height: 530px;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
