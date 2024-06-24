@@ -3,7 +3,7 @@
         <input type="checkbox" id="flip">
         <div class="cover">
           <div class="front">
-            <img src="images/frontImg.jpg" alt="">
+            <img [src]="images[0].image" alt="">
             <div class="text">
               <span class="text-1">Every new friend is a <br> new adventure</span>
               <span class="text-2">Let's get connected</span>
@@ -20,19 +20,40 @@
             <div class="form-content">
               <div class="login-form">
                 <div class="title">Login</div>
-              <form action="#">
+              <form action="#" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="input-boxes">
                   <div class="input-box">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Enter your email" required>
+                    <input type="text" placeholder="Enter your email" required formControlName="username">
+
+                    @if ((loginForm.controls.username.touched || submitted)
+                    &&loginForm.controls.username.errors?.required) {
+        
+                    <div class="error-message">Name is required.</div>
+                    } @else if (loginForm.controls.username.hasError('minlength')) {
+        
+                    <div class="error-message">
+                      Name must be at least 4 characters long.
+                    </div>
+                    }
                   </div>
                   <div class="input-box">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Enter your password" required>
+                    <input type="password" placeholder="Enter your password" required formControlName="password">
+                    @if ((loginForm.controls.password.touched || submitted)
+                    &&loginForm.controls.password.errors?.required) {
+        
+                    <div class="error-message">Password is required.</div>
+                    } @else if (loginForm.controls.password.hasError('minlength')) {
+        
+                    <div class="error-message">
+                      Password must be at least 4 characters long.
+                    </div>
+                    }
                   </div>
                   <div class="text"><a href="#">Forgot password?</a></div>
                   <div class="button input-box">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Login">
                   </div>
                   <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
                 </div>
@@ -40,11 +61,21 @@
           </div>
             <div class="signup-form">
               <div class="title">Signup</div>
-            <form action="#">
+            <form action="#" [formGroup]="signUpForm" (ngSubmit)="onRegister()">
                 <div class="input-boxes">
                   <div class="input-box">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your name" required formControlName="username">
+                    @if ((loginForm.controls.username.touched || submitted)
+                    &&loginForm.controls.username.errors?.required) {
+        
+                    <div class="error-message">Name is required.</div>
+                    } @else if (loginForm.controls.username.hasError('minlength')) {
+        
+                    <div class="error-message">
+                      Name must be at least 4 characters long.
+                    </div>
+                    }
                   </div>
                   <div class="input-box">
                     <i class="fas fa-envelope"></i>
@@ -52,7 +83,17 @@
                   </div>
                   <div class="input-box">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Enter your password" required>
+                    <input type="password" placeholder="Enter your password" required formControlName="password">
+                    @if ((loginForm.controls.password.touched || submitted)
+                    &&loginForm.controls.password.errors?.required) {
+        
+                    <div class="error-message">Password is required.</div>
+                    } @else if (loginForm.controls.password.hasError('minlength')) {
+        
+                    <div class="error-message">
+                      Password must be at least 4 characters long.
+                    </div>
+                    }
                   </div>
                   <div class="button input-box">
                     <input type="submit" value="Submit">

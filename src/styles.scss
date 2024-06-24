@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 ::-webkit-scrollbar{
   width: .6rem;
   border-radius: .5rem;
@@ -16,6 +17,7 @@
   }
 
   body{
+    font-family: "Poppins", sans-serif;
     background-color: hsl(228, 15%, 15%);
     color: hsl(228, 8%, 95%);
   }

@@ -1,4 +1,4 @@
-<div class="container mt-5" *ngIf="district">
+<div class="container mt-3" *ngIf="district">
   <div class="row">
     <div class="col-md-4">
       <h2>{{ district.title }}</h2>
@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-8 carousel-custom">
       <app-home-carousel 
-        [id]=district.id [carouselType]=true>
+        [id]="district.id" [carouselType]="true">
       </app-home-carousel>
     </div>
   </div>
